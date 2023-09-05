@@ -1,23 +1,586 @@
-<!doctype html>
-<title>Site Maintenance</title>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-<style>
-  html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
-  * {box-sizing: border-box;}
-  body { text-align: center; padding: 0; background: #d6433b; color: #fff; font-family: Open Sans; }
-  h1 { font-size: 50px; font-weight: 100; text-align: center;}
-  body { font-family: Open Sans; font-weight: 100; font-size: 20px; color: #fff; text-align: center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center;}
-  article { display: block; width: 700px; padding: 50px; margin: 0 auto; }
-  a { color: #fff; font-weight: bold;}
-  a:hover { text-decoration: none; }
-  svg { width: 75px; margin-top: 1em; }
-</style>
+<html dir="ltr" lang="en-US">
 
-<article>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.24 202.24"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 3</title><g id="Layer_2" data-name="Layer 2"><g id="Capa_1" data-name="Capa 1"><path class="cls-1" d="M101.12,0A101.12,101.12,0,1,0,202.24,101.12,101.12,101.12,0,0,0,101.12,0ZM159,148.76H43.28a11.57,11.57,0,0,1-10-17.34L91.09,31.16a11.57,11.57,0,0,1,20.06,0L169,131.43a11.57,11.57,0,0,1-10,17.34Z"/><path class="cls-1" d="M101.12,36.93h0L43.27,137.21H159L101.13,36.94Zm0,88.7a7.71,7.71,0,1,1,7.71-7.71A7.71,7.71,0,0,1,101.12,125.63Zm7.71-50.13a7.56,7.56,0,0,1-.11,1.3l-3.8,22.49a3.86,3.86,0,0,1-7.61,0l-3.8-22.49a8,8,0,0,1-.11-1.3,7.71,7.71,0,1,1,15.43,0Z"/></g></g></svg>
-    <h1>We&rsquo;ll be back soon!</h1>
-    <div>
-        <p>Sorry for the inconvenience. We&rsquo;re performing some maintenance at the moment.</p>
-        <p>&mdash; The Darren Leew Website Team</p>
-    </div>
-</article>
+<head>
+	<style>
+		.gm-err-container {
+			height: 100%;
+			width: 100%;
+			display: table;
+			background-color: #e8eaed;
+			position: relative;
+			left: 0;
+			top: 0
+		}
+
+		.gm-err-content {
+			border-radius: 1px;
+			padding-top: 0;
+			padding-left: 10%;
+			padding-right: 10%;
+			position: static;
+			vertical-align: middle;
+			display: table-cell
+		}
+
+		.gm-err-content a {
+			color: #3c4043
+		}
+
+		.gm-err-icon {
+			text-align: center
+		}
+
+		.gm-err-title {
+			margin: 5px;
+			margin-bottom: 20px;
+			color: #3c4043;
+			font-family: Roboto, Arial, sans-serif;
+			text-align: center;
+			font-size: 24px
+		}
+
+		.gm-err-message {
+			margin: 5px;
+			color: #3c4043;
+			font-family: Roboto, Arial, sans-serif;
+			text-align: center;
+			font-size: 12px
+		}
+
+		.gm-err-autocomplete {
+			padding-left: 20px;
+			background-repeat: no-repeat;
+			-webkit-background-size: 15px 15px;
+			background-size: 15px 15px
+		}
+
+		sentinel {}
+	</style>
+	<style>
+		.gm-err-container {
+			height: 100%;
+			width: 100%;
+			display: table;
+			background-color: #e8eaed;
+			position: relative;
+			left: 0;
+			top: 0
+		}
+
+		.gm-err-content {
+			border-radius: 1px;
+			padding-top: 0;
+			padding-left: 10%;
+			padding-right: 10%;
+			position: static;
+			vertical-align: middle;
+			display: table-cell
+		}
+
+		.gm-err-content a {
+			color: #3c4043
+		}
+
+		.gm-err-icon {
+			text-align: center
+		}
+
+		.gm-err-title {
+			margin: 5px;
+			margin-bottom: 20px;
+			color: #3c4043;
+			font-family: Roboto, Arial, sans-serif;
+			text-align: center;
+			font-size: 24px
+		}
+
+		.gm-err-message {
+			margin: 5px;
+			color: #3c4043;
+			font-family: Roboto, Arial, sans-serif;
+			text-align: center;
+			font-size: 12px
+		}
+
+		.gm-err-autocomplete {
+			padding-left: 20px;
+			background-repeat: no-repeat;
+			background-size: 15px 15px
+		}
+	</style>
+	<style>
+		.gm-style-moc {
+			background-color: rgba(0, 0, 0, .45);
+			pointer-events: none;
+			text-align: center;
+			transition: opacity ease-in-out
+		}
+
+		.gm-style-mot {
+			color: white;
+			font-family: Roboto, Arial, sans-serif;
+			font-size: 22px;
+			margin: 0;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%)
+		}
+	</style>
+	<style>
+		.gm-style img {
+			max-width: none;
+		}
+
+		.gm-style {
+			font: 400 11px Roboto, Arial, sans-serif;
+			text-decoration: none;
+		}
+	</style>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="SemiColonWeb">
+
+	<!-- Stylesheets
+	============================================= -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto:300,400,500,700|Rubik:400,600&amp;display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="stylesheet" href="css/dark.css" type="text/css">
+
+	<!-- Real Estate Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="demos/real-estate/real-estate.css" type="text/css">
+	<link rel="stylesheet" href="demos/real-estate/css/font-icons.css" type="text/css">
+	<!-- / -->
+
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css">
+	<link rel="stylesheet" href="css/animate.css" type="text/css">
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+
+	<link rel="stylesheet" href="demos/real-estate/fonts.css" type="text/css">
+
+	<!-- Bootstrap Select CSS -->
+	<link rel="stylesheet" href="css/components/bs-select.css" type="text/css">
+
+	<!-- Bootstrap Switch CSS -->
+	<link rel="stylesheet" href="css/components/bs-switches.css" type="text/css">
+
+	<!-- Range Slider CSS -->
+	<link rel="stylesheet" href="css/components/ion.rangeslider.css" type="text/css">
+
+	<link rel="stylesheet" href="css/custom.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/colors.php?color=2C3E50" type="text/css">
+
+	<!-- Document Title
+	============================================= -->
+	<title>Real Estate Demo | Canvas</title>
+
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/common.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/util.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/map.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/geocoder.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/marker.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/51/3/onion.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/54/3/common.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/54/3/util.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/54/3/map.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/54/3/geocoder.js"></script>
+	<script type="text/javascript" charset="UTF-8"
+		src="https://maps.google.com/maps-api-v3/api/js/54/3/marker.js"></script>
+</head>
+
+<body
+	class="stretched side-push-panel has-plugin-flexslider has-plugin-easing has-plugin-bootstrap has-plugin-tabs has-plugin-counter has-plugin-gmapapi has-plugin-gmap has-plugin-carousel has-plugin-linkscroll has-plugin-form quick-contact-form-ready has-plugin-ajaxform has-plugin-subscribeform has-plugin-isotope has-plugin-lightbox template-contactform-ready device-xl gototop-active">
+
+	<div id="side-panel">
+		<div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a>
+		</div>
+
+		<div class="side-panel-wrap">
+			<div class="widget clearfix">
+
+				<h4 class="fw-normal">Login with Social Profiles</h4>
+
+				<a href="#"
+					class="button button-rounded fw-normal w-100 center si-colored ms-0 si-facebook">Facebook</a>
+				<a href="#" class="button button-rounded fw-normal w-100 center si-colored ms-0 si-gplus">Google</a>
+
+				<div class="line"></div>
+
+				<h4 class="fw-normal">Existing Account?</h4>
+
+				<form id="login-form" name="row mb-0" class="mb-0" action="#" method="post">
+
+					<div class="col-12 form-group">
+						<label for="login-form-username" class="fw-normal">Username:</label>
+						<input type="text" id="login-form-username" name="login-form-username" value=""
+							class="form-control">
+					</div>
+
+					<div class="col-12 form-group">
+						<label for="login-form-password" class="fw-normal">Password:</label>
+						<input type="password" id="login-form-password" name="login-form-password" value=""
+							class="form-control">
+					</div>
+
+					<div class="col-12 form-group">
+						<button class="button button-rounded fw-normal m-0" id="login-form-submit"
+							name="login-form-submit" value="login">Login</button>
+						<a href="#" class="float-end">Forgot Password?</a>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="transparent-topbar border-bottom-0">
+			<div class="container clearfix">
+
+				<div class="row justify-content-between">
+					<div class="col-12 col-md-auto">
+
+						<!-- Top Links
+						============================================= -->
+						<!-- .top-links end -->
+
+					</div>
+
+					<div class="col-12 col-md-auto">
+
+						<!-- Top Links
+						============================================= -->
+						<!-- .top-links end -->
+
+					</div>
+				</div>
+
+			</div>
+		</div><!-- #top-bar end -->
+
+		<!-- Header
+		============================================= -->
+
+
+		<!-- Slider
+		============================================= -->
+		<section id="slider" class="slider-element min-vh-60 min-vh-md-100 dark include-header include-topbar"
+			style="margin-top: -81.6667px;">
+			<div class="slider-inner">
+
+				<div class="fslider h-100 position-absolute" data-speed="3000" data-pause="7500" data-animation="fade"
+					data-arrows="false" data-pagi="false" style="background-color: #333;">
+					<div class="flexslider" style="height: 1283.33px;">
+						<div class="slider-wrap">
+							<div class="slide"
+								style="background: url(&quot;images/cityhall.jpg&quot;) center center / cover; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+							</div>
+							<div class="slide flex-active-slide"
+								style="background: url(&quot;images/Edmontoncityscape.jpg&quot;) center center / cover; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+							</div>
+							<div class="slide"
+								style="background: url(&quot;images/EdmontonMuttart.jpg&quot;) center center / cover; width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="vertical-middle">
+					<div class="container text-center">
+						<!-- Logo
+						============================================= -->
+						<div id="logo" style="display:block; margin-left:auto; margin-right:auto; width:10%;">
+							<a href="index.html" data-dark-logo="images/Logic+Realty+-+White+&+Grey.png"
+								class="standard-logo"><img src="images/Logic+Realty+-+White+&+Grey.png"
+									alt="Canvas Logo"></a>
+							<a href="index.html" data-dark-logo="images/Logic+Realty+-+White+&+Grey.png"
+								class="retina-logo"><img src="images/Logic+Realty+-+White+&+Grey.png"
+									alt="Canvas Logo"></a>
+						</div><!-- #logo end -->
+
+
+						<div class="emphasis-title m-0">
+							<h1>Darren Leew Realty</h1>
+							<span class="fw-light text-uppercase"
+								style="font-size: 18px; letter-spacing: 10px; color: rgba(255,255,255,0.9);">since
+								2001</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="video-wrap">
+					<div class="video-overlay real-estate-video-overlay"></div>
+				</div>
+
+			</div>
+		</section><!-- #slider end -->
+
+
+
+
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+
+
+
+					<div class="heading-block border-bottom-0">
+						<h3>Find your dream home today</h3>
+						<div class="section m-0 center dark"
+							style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)), url('images/historicalbuildingedmonton.jpeg') no-repeat center center / cover; padding: 140px 0;">
+							<div class="container">
+
+							</div>
+							<div class="center">
+								<a href="https://www.realtor.ca/agent/1478515/darren-leew-6211-187b-st-nw-edmonton-alberta-t5t5t3#firstname=darren&lastname=leew&page=1&sort=3-A"
+									class="button button-large button-rounded text-capitalize ms-0 mt-5 ls0">View
+									available listings</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div style="padding: 50px 0px 50px 0px"></div>
+					<div class="container-fluid">
+
+						<div class="row align-items-lg-center col-mb-30">
+
+							<!-- Image -->
+							<div class="col-xl-8 col-lg-2 px-lg-0 min-vh-50 min-vh-lg-75"
+								style="background: url('images/darrenleew.jpg') no-repeat center center; background-size: cover;">
+							</div>
+
+							<!-- Content -->
+							<div class="col-xl-4 col-lg-6 px-lg-5 py-5">
+								<h3 class="h1 mb-4 fw-normal">Find your</h3>
+								<h3 class="h1 mb-4 fw-normal">Dream Home</h3>
+								<h3 class="h1 mb-4 fw-normal">with Darren Leew</h3>
+								<p>With over 20 years of experience and a reliable knowledge of Edmonton and greater
+									area, finding your new home with Darren Leew will be an comfortable and enjoyable
+									experience.</p>
+
+
+							</div>
+						</div>
+
+					</div>
+					
+					
+
+
+
+					<div class="heading-block border-bottom-0">
+
+
+					</div>
+
+
+					<div class="col-xlg-4 bg-color">
+
+					</div>
+
+
+				</div>
+				<div class="heading-block border-bottom-0">
+
+
+				</div>
+
+
+
+
+
+			</div>
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark" style="">
+			<div class="container">
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap">
+
+					<div class="row col-mb-50">
+						<div class="col-lg-3 order-last order-lg-first">
+
+							<div class="widget clearfix">
+
+								<img src="images/Logic+Realty+-+White+&+Grey.png"
+									style="position: relative; opacity: 0.85; left: -10px; max-height: 80px; margin-bottom: 20px;"
+									alt="Footer Logo">
+
+
+
+
+
+
+
+
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-3 order-last order-lg-first">
+
+							<div class="widget clearfix">
+
+
+								<p><strong>Darren Leew</strong><br>Liscensed REALTOR<br>darren@darrenleew.com<br>
+									(780)-722-8523
+								</p>
+
+
+
+
+
+
+
+
+							</div>
+
+						</div>
+						<div class="col-lg-3 order-last order-lg-first">
+
+							<div class="widget clearfix">
+
+								<strong>Logic Realty</strong><br> 6211-187B Street
+
+								<br>
+								Edmonton, Alberta
+								<br>
+								T5T 5T3<p></p>
+
+
+
+
+
+
+
+
+							</div>
+
+						</div>
+
+						<div class="col-lg-3">
+
+							<div class="row col-mb-50">
+
+
+								<div class="col-md-6">
+									<h4 class="ls1 fw-normal text-uppercase">Connect Socially</h4>
+
+									<div class="bottommargin-sm clearfix">
+										<a href="https://www.facebook.com/darrenleewlogicrealty/" class="social-icon si-colored si-small si-rounded si-facebook"
+											title="Facebook">
+											<i class="icon-facebook"></i>
+											<i class="icon-facebook"></i>
+										</a>
+
+							
+
+										<a href="https://www.instagram.com/dl_realtor/" class="social-icon si-colored si-small si-rounded si-instagram"
+											title="Instagram">
+											<i class="icon-instagram"></i>
+											<i class="icon-instagram"></i>
+										</a>
+
+										
+
+
+
+
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+			</div>
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up" style="display: block;"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="js/jquery.js"></script>
+	<script src="js/plugins.min.js"></script>
+	<script src="https://maps.google.com/maps/api/js?key=YOUR-API-KEY"></script>
+
+	<!-- Bootstrap Select Plugin -->
+	<script src="js/components/bs-select.js"></script>
+
+	<!-- Bootstrap Switch Plugin -->
+	<script src="js/components/bs-switches.js"></script>
+
+	<!-- Range Slider Plugin -->
+	<script src="js/components/rangeslider.min.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="js/functions.js"></script>
+
+	<script>
+
+		jQuery(document).ready(function () {
+
+			$(".price-range-slider").ionRangeSlider({
+				type: "double",
+				prefix: "$",
+				min: 200,
+				max: 10000,
+				max_postfix: "+"
+			});
+
+			$(".area-range-slider").ionRangeSlider({
+				type: "double",
+				min: 50,
+				max: 20000,
+				from: 50,
+				to: 20000,
+				postfix: " sqm.",
+				max_postfix: "+"
+			});
+
+			jQuery(".bt-switch").bootstrapSwitch();
+
+		});
+
+	</script>
+
+
+</body>
+
+</html>
